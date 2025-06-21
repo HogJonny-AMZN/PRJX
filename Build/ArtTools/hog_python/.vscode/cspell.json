@@ -1,0 +1,14 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [
+    {
+      "name": "hog_python",
+      "path": "${workspaceFolder:hog_python}/.vscode/hog_python-dictionary.txt"
+    }
+  ],
+  "dictionaries": ["hog_python"],
+  "words": [],
+  "ignoreWords": [],
+  "import": []
+}

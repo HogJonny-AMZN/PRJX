@@ -1,0 +1,8 @@
+# packages
+# these get installed directly into the venv
+
+# ERROR: Could not find a version that satisfies the requirement PySide2==5.15.8 (from versions: 5.15.1, 5.15.2, 5.15.2.1)
+# Apparently Substance has a newer PySide2 then is available with pip (at least in py 3.9)
+#PySide2==5.15.8  # < -- NOT AVAILABLE
+PySide2==5.15.2.1
+shiboken2==5.15.2.1

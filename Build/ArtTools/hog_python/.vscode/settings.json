@@ -1,0 +1,23 @@
+{  "python.defaultInterpreterPath": "${workspaceFolder:hog_python}/.venv/Python-${env:HOG_PYTHON_VERSION}/scripts/python.exe",
+  "terminal.integrated.cwd": "${workspaceFolder:hog_python}",
+  "python.terminal.executeInFileDir": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "python.autoComplete.extraPaths": ["${workspaceFolder:hog_python}/typings"],
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "isort.importStrategy": "fromEnvironment",
+  "black-formatter.importStrategy": "fromEnvironment",
+  "cSpell.customDictionaries": {    "custom": {
+      "name": "hog_python",
+      "path": "${workspaceFolder:hog_python}/.vscode/hog_python-dictionary.txt",
+      "addWords": true
+    },
+    "internal": false
+  }
+}

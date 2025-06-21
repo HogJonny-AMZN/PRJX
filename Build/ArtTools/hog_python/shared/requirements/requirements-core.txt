@@ -1,0 +1,12 @@
+# packages
+# these can all go in requirement.txt, and/or -core (or both)
+pywin32
+pypiwin32
+requests==2.31.0
+virtualenv==20.24.4
+debugpy==1.6.7.post1
+certifi==2024.6.2
+idna==3.7
+platformdirs==3.11.0
+urllib3==2.2.1
+comtypes

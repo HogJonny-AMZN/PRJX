@@ -1,0 +1,29 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    "ms-python.black-formatter",
+    "ms-python.vscode-python-envs",
+    "ms-dotnettools.csdevkit",
+    "ms-python.flake8",
+    "vscode-icons-team.vscode-icons",
+    "charliermarsh.ruff",
+    "magicstack.magicpython",
+    "mjcrouch.perforce",
+    "mohsen1.prettify-json",
+    "nils-ballmann.python-coding-tools",
+    "mintlify.document",
+    "njpwerner.autodocstring",
+    "atlassian.atlascode",
+    "aaron-bond.better-comments",
+    "phplasma.csv-to-table",
+    "oderwat.indent-rainbow",
+    "mjcrouch.perforce",
+    "mechatroner.rainbow-csv",
+    "kevinrose.vsc-python-indent",
+    "rechinformatica.rech-editor-batch",
+    "eliostruyf.vscode-remote-control",
+    "nils-ballmann.python-coding-tools"
+  ]
+}

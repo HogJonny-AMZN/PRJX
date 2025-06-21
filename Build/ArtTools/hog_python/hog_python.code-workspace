@@ -1,0 +1,184 @@
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "hog_python"
+        },
+        {
+            "path": "../hog-packages",
+            "name": "hog_packages"
+        },
+        {
+            "path": "../hog_tools",
+            "name": "hog_tools"
+        }
+    ],
+    "settings": {
+        "window.title": "${dirty}${activeEditorShort}${separator}${folderPath}${separator}${appName}",
+        "python.defaultInterpreterPath": "${workspaceFolder:hog_python}/.venv/Python-${env:HOG_PYTHON_VERSION}/scripts/python.exe",
+        "python.languageServer": "Pylance",
+        "files.autoSave": "afterDelay",
+        "files.trimTrailingWhitespace": true,
+        "[json][jsonc]": {
+            "editor.insertSpaces": true,
+            "editor.tabSize": 4,
+            "editor.formatOnSave": true,
+            "editor.defaultFormatter": "vscode.json-language-features"
+        },
+        "[python]": {
+            "editor.codeActionsOnSave": {
+                "source.fixAll.addMissingImports": "explicit",
+                "source.fixAll.unusedImports": "never",
+                "source.organizeImports": "never",
+                "source.addMissingImports": "always"
+            },
+            "editor.defaultFormatter": "ms-python.black-formatter",
+            "editor.insertSpaces": true,
+            "editor.formatOnSave": true,
+            "editor.formatOnType": true,
+            "editor.tabSize": 4,
+            "editor.rulers": [
+                75,
+                88,
+                120,
+                159
+            ]
+        },
+        "black-formatter.args": [
+            "--line-length=120 -diff --quiet"
+        ],
+        "black-formatter.interpreter": [
+            "${workspaceFolder:hog_python}/.venv/Python-${env:HOG_PYTHON_VERSION}/Scripts/python.exe"
+        ],
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.extraPaths": [
+            "${workspaceFolder:hog_python}/typings"
+        ],
+        "ruff.path": [
+            "${workspaceFolder:hog_python}/.venv/Python-${env:HOG_PYTHON_VERSION}/Scripts/ruff.exe"
+        ],
+        "ruff.interpreter": [
+            "${workspaceFolder:hog_python}/.venv/Python-${env:HOG_PYTHON_VERSION}/Scripts/python.exe"
+        ],
+        "ruff.lineLength": 120,
+        "ruff.lint.select": [
+            "E",
+            "F"
+        ],
+        "isort.args": [
+            "--profile",
+            "black"
+        ],
+        "python.terminal.activateEnvironment": true,
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "terminal.integrated.profiles.windows": {
+            "PowerShell": {
+                "source": "PowerShell",
+                "icon": "terminal-powershell"
+            },
+            "hog_cmd": {
+                "path": "C:/WINDOWS/System32/cmd.exe",
+                "args": [
+                    "/K",
+                    "${workspaceFolder:hog_python}/hog_cmd.cmd"
+                ],
+                "icon": "terminal-cmd"
+            },
+            "Command Prompt": {
+                "path": [
+                    "cmd.exe",
+                    "${workspaceFolder:hog_python}/cmd.exe"
+                ],
+                "args": [],
+                "icon": "terminal-cmd"
+            }
+        },
+        "terminal.integrated.defaultProfile.windows": "Command Prompt",
+        "terminal.integrated.cwd": "${workspaceFolder:hog_python}",
+        "terminal.integrated.env.windows": {},
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.copyWithSyntaxHighlighting": false,
+        "editor.detectIndentation": false,
+        "terminal.integrated.automationProfile.windows": {
+            "path": "cmd.exe"
+        },
+        "flake8.args": [
+            "--max-line-length=119",
+            "--ignore=E402,F841,F401,E302,E305,W503"
+        ],
+        "cSpell.words": [
+            "ENVAR",
+            "isort"
+        ],
+        "python.terminal.executeInFileDir": true,
+        "python.terminal.focusAfterLaunch": true,
+        "python.testing.cwd": "./testing",
+        "powershell.cwd": "${workspaceFolder}",
+        "python.analysis.autoFormatStrings": true,
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.completeFunctionParens": true,
+        "python.analysis.indexing": true,
+        "python.analysis.inlayHints.callArgumentNames": "off",
+        "python.analysis.inlayHints.functionReturnTypes": true,
+        "python.analysis.inlayHints.variableTypes": false,
+        "python.analysis.stubPath": "./typings",
+        "python.analysis.exclude": [
+            "**/__pycache__",
+            "**/hog_python/base",
+            "**/hog_python/shared",
+            "**/hog_python/.venv",
+            "**/dev_py/shared",
+            "**/dev_py/.venv"
+        ],
+        "python.analysis.ignore": [
+            "**/*.zip",
+            "**/*.pyc"
+        ],
+        "docwriter.style": "Auto-detect",
+        "editor.defaultFoldingRangeProvider": null,
+        "prettier.singleQuote": true,
+        "prettier.endOfLine": "lf",
+        "breadcrumbs.enabled": true,
+        "terminal.integrated.minimumContrastRatio": 7,
+        "editor.formatOnSaveMode": "file",
+        "python.analysis.logLevel": "Information",
+        "workbench.editor.labelFormat": "short",
+        "bookmarks.useWorkaroundForFormatters": true,
+        "cSpell.autoFormatConfigFile": true,
+        "cSpell.showAutocompleteSuggestions": true,
+        "cSpell.spellCheckOnlyWorkspaceFiles": true,
+        "cSpell.enabledFileTypes": {
+            "bat": true,
+            "json": true,
+            "cmd": true
+        },
+        "cSpell.languageSettings": [],
+        "cSpell.import": [
+            "${workspaceFolder}/.vscode/cspell.json"
+        ],
+        "cSpell.customDictionaries": {
+            "custom": {
+                "name": "hog_python",
+                "path": "${workspaceFolder:hog_python}/.vscode/hog_python-dictionary.txt",
+                "addWords": true,
+                "scope": "workspace"
+            },
+            "internal": {
+                "path": "${workspaceFolder:hog_python}/.vscode/hog_python-dictionary.txt"
+            }
+        },
+        "pythonIndent.trimLinesWithOnlyWhitespace": true,
+        "pythonIndent.useTabOnHangingIndent": true,
+        "ruff.organizeImports": true,
+        "black-formatter.importStrategy": "fromEnvironment",
+        "flake8.severity": {
+            "E": "Warning",
+            "F": "Warning"
+        },
+        "dotnet.defaultSolution": "disable",
+        "atlascode.bitbucket.enabled": false,
+        "python-envs.pythonProjects": []
+    }
+}

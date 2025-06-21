@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "tasks": [    {
+      "label": "Hog_cmd.cmd",
+      "type": "shell",
+      "windows": {
+        "command": "cmd.exe ./hog_cmd.cmd"
+      },
+      "options": {
+        "cwd": "${workspaceFolder:hog_python}"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {      "label": "Install VSC Extensions",
+      "type": "shell",
+      "windows": {
+        "command": "cmd.exe ${workspaceFolder}/scripts/install_vsc_extensions.cmd"
+      },
+      "options": {
+        "cwd": "${workspaceFolder:hog_python}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "default"
+      }
+    },
+    {      "label": "Kill debugpy port",
+      "type": "shell",
+      "windows": {
+        "command": "cmd.exe '${workspaceFolder:hog_python}/scripts/kill_debugpy.cmd'"
+      },
+      "options": {
+        "cwd": "${workspaceFolder:hog_python}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "default"
+      }
+    },
+    {      "label": "[PySide] designer.exe",
+      "type": "shell",
+      "windows": {
+        "command": "${workspaceFolder:hog_python}/shared/Python-${env:HOG_PYTHON_VERSION}-gui/Lib/site-packages/PySide${env:PYSIDE_VERSION}/designer.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder:hog_python}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "default"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "echo workspaceFolder",
+      "type": "shell",
+      "command": "echo ${workspaceFolder}"
+    },
+    {
+      "label": "echo fileWorkspaceFolder",
+      "type": "shell",
+      "command": "echo ${fileWorkspaceFolder}"
+    },
+    {
+      "label": "echo relativeFile",
+      "type": "shell",
+      "command": "echo ${relativeFile}"
+    },
+    {
+      "label": "echo python.exe",
+      "type": "shell",
+      "command": "echo %PYTHON%"
+    }
+  ]
+}

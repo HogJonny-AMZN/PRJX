@@ -1,0 +1,2 @@
+# frozen from maya 2025 runtime
+pyside6==6.5.3

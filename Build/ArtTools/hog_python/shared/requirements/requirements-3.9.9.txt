@@ -1,0 +1,32 @@
+# packages
+# these can all go in requirement.txt, and/or -core (or both)
+autopep8
+black
+ruff
+debugpy
+flake8
+isort
+pywin32
+pypiwin32
+comtypes
+urllib3
+pyflakes
+p4python
+pymel
+scipy
+opencolorio
+OpenEXR
+dynaconf
+python-box
+hashids
+cachetools
+click
+slack_sdk
+Pillow
+colorama
+mccabe
+numpy==1.24.4
+# pythonnet, failed
+# Sphinx, failed
+# matplotlib, failed
+# OpenImageIO  ## has to be built

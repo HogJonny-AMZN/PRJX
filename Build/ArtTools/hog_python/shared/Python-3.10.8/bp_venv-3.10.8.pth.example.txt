@@ -1,0 +1,3 @@
+../../../../scripts
+../../../../shared/Python-3.10.8/Lib/site-packages
+../../../../../python3/bp-packages

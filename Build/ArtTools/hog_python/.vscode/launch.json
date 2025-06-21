@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Current File (integrated)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "justMyCode": true,
+      "logToFile": true,
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Terminal (external)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "externalTerminal",
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Current File (debug console)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "internalConsole",
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Attach debugpy",
+      "type": "debugpy",
+      "request": "attach",
+      "port": 5678,
+      "host": "127.0.0.1"
+    }
+  ]
+}

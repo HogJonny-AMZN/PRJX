@@ -1,0 +1,17 @@
+# frozen from maya 2025 runtime
+pip
+setuptools
+autopep8
+black
+ruff
+debugpy
+flake8
+isort
+pywin32
+pypiwin32
+comtypes
+requests
+virtualenv
+urllib3
+pyflakes
+numpy==1.24.4
