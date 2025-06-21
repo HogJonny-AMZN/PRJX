@@ -1,0 +1,49 @@
+@ECHO OFF
+REM
+:: Initialize HOG ArtTools core environment [ for python developers ]
+
+:: Store current dir
+PUSHD %~dp0
+
+:: Skip initialization if already completed
+IF "%HOG_DCC_PATHS_ENV%"=="1" GOTO :END_OF_FILE
+
+IF "%HOG_PY_DEBUG_VERBOSE%"=="" ( SET "HOG_PY_DEBUG_VERBOSE=0" )
+
+CALL %~dp0set_hog_base_init_env.cmd
+
+SET "HOG_BLENDERTOOLS_PATH=%HOG_ARTTOOLS_PATH%\blender"
+SET "HOG_HOUDINITOOLS_PATH=%HOG_ARTTOOLS_PATH%\houdini"
+SET "HOG_MAYATOOLS_PATH=%HOG_ARTTOOLS_PATH%\maya"
+SET "HOG_PHOTOSHOPTOOLS_PATH=%HOG_ARTTOOLS_PATH%\photoshop"
+SET "HOG_SUBSTANCE_ROOT=%HOG_ARTTOOLS_PATH%\substance"
+SET "HOG_SATTOOLS_PATH=%HOG_SUBSTANCE_ROOT%\SubstanceAutomationToolkit"
+SET "HOG_SUBDTOOLS_PATH=%HOG_SUBSTANCE_ROOT%\SubstanceDesigner"
+SET "HOG_SBSPTOOLS_PATH=%HOG_SUBSTANCE_ROOT%\SubstancePainter"
+
+IF "%HOG_PY_DEBUG_VERBOSE%"=="1" (
+   GOTO hog_dcc_debug_start
+) ELSE (
+   GOTO END_OF_FILE
+)
+
+:hog_dcc_debug_start
+echo.
+ECHO Initializing::  %~dp0set_hog_dcc_paths_env.cmd
+ECHO      [DCC] HOG_BLENDERTOOLS_PATH = %HOG_BLENDERTOOLS_PATH%
+ECHO      [DCC] HOG_HOUDINITOOLS_PATH = %HOG_HOUDINITOOLS_PATH%
+ECHO      [DCC] HOG_MAYATOOLS_PATH = %HOG_MAYATOOLS_PATH%
+ECHO      [DCC] HOG_PHOTOSHOPTOOLS_PATH = %HOG_PHOTOSHOPTOOLS_PATH%
+ECHO      [DCC] HOG_SATTOOLS_PATH = %HOG_SATTOOLS_PATH%
+ECHO      [DCC] HOG_SUBDTOOLS_PATH = %HOG_SUBDTOOLS_PATH%
+ECHO      [DCC] HOG_SBSPTOOLS_PATH = %HOG_SBSPTOOLS_PATH%
+ECHO      [DCC] HOG_PYTHONTOOLS_PATH = %HOG_PYTHONTOOLS_PATH%
+ECHO       DONE
+echo.
+
+:END_OF_FILE
+:: Set flag so we don't initialize environment twice
+SET "HOG_DCC_PATHS_ENV=1"
+
+:: Return to starting directory
+POPD

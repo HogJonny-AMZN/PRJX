@@ -1,0 +1,87 @@
+@ECHO OFF
+REM
+REM Allows User early user overrides of downstream ENVARs
+
+REM Store current directory and change to environment directory so script works in any path.
+:: Drive will get mapped if executed from UNC share
+SET CMD_DIR=%~dp0
+SET CMD_DIR=%CMD_DIR:~0,-1%
+
+:: Store current dir
+PUSHD %~dp0
+
+:: Skip initialization if already completed
+IF "%HOG_PY_USER_DEV_ENV%"=="1" GOTO :END_OF_FILE
+
+SET "HOG_PY_DEBUG_VERBOSE=1"
+
+:: Override version of Maya to boot (default base python derived from Maya version)
+:: SET "HOG_MAYA_VERSION=2024"
+:: SET "HOG_HOUDINI_VERSION=20.0"
+
+:: you can manually set this but it's unnecessary,
+:: in the dev framework this is data-driven and derived from Maya2024 app, via Mayapy.exe+script
+:: SET "HOG_MAYA_PY_VER=3.10.8"
+:: SET "HOG_PYTHON_VERSION=3.10.8"
+:: SET "HOG_HOUDINI_PY_VERSION=310"
+:: SET "HOG_HOUDINI_APP_VERSION=fx"
+
+REM HARD global overrides
+:: this envar propagates into the python boot system, enable additional debug logic, strict validation, etc.
+SET "HOG_GLOBAL_DEBUG=1"
+
+:: This is an envar hook that propagates into boot, and can be caught and tested to attach IDE debugger automatically as early as possible
+SET "HOG_PY_EARLY_DEBUG=1"
+
+:: This specifies the debugger type (possibly tied to IDE), values: 'debugpy' (VScode), 'wing', etc.
+SET "HOG_PY_DEBUGGER=debugpy"
+
+:: this envar propagates into the python boot system, it can modify the logging level to be more verbose
+:: Python logging levels
+:: CRITICAL:50 | ERROR:40 | WARNING:30
+:: INFO:20     | DEBUG:10 | NOTSET:0
+SET "HOG_PY_LOGLEVEL=10"
+SET "HOG_MAYA_LOGLEVEL=10"
+
+:: this will cause the PYTHONPATH to print before starting service (cmd, python.cmd, etc)
+SET "HOG_PY_SHOW_PATHS=0"
+
+:: enables pauses at crucial points for debugging env file execution flow
+SET "HOG_PY_DEBUG_PAUSE=0"
+
+SET "HOG_PY_USE_VENV=0"
+
+:: don't use %ENVAR% variables that might not exist yet!!
+::SET MAYA_PROJECT=%HOG_ROOT%\Build\ArtTools\DevData
+
+IF "%HOG_PY_DEBUG_VERBOSE%"=="1" (
+   GOTO hog_py_user_debug_start
+) ELSE (
+   GOTO END_OF_FILE
+)
+
+REM This Section ECHO's for MAYA
+:hog_py_user_debug_start
+ECHO Initializing:: %CMD_DIR%\set_hog_user_dev_env.cmd
+ECHO      [USER] HOG_MAYA_VERSION = %HOG_MAYA_VERSION%
+ECHO      [USER] HOG_GLOBAL_DEBUG = %HOG_GLOBAL_DEBUG%
+ECHO      [USER] HOG_PY_EARLY_DEBUG = %HOG_PY_EARLY_DEBUG%
+ECHO      [USER] HOG_PY_DEBUGGER = %HOG_PY_DEBUGGER%
+ECHO      [USER] HOG_PY_DEBUG_VERBOSE = %HOG_PY_DEBUG_VERBOSE%
+ECHO      [USER] HOG_PY_DEBUG_PAUSE = %HOG_PY_DEBUG_PAUSE%
+ECHO      [USER] HOG_PY_LOGLEVEL = %HOG_PY_LOGLEVEL%
+ECHO      [USER] HOG_PY_SHOW_PATHS = %HOG_PY_SHOW_PATHS%
+ECHO      [USER] HOG_PY_USE_VENV = %HOG_PY_USE_VENV%
+ECHO       DONE
+echo.
+
+:END_OF_FILE
+
+:: Set flag so we don't initialize environment twice
+SET "HOG_PY_USER_DEV_ENV=1"
+
+IF "%HOG_PY_DEBUG_PAUSE%"=="1" ( PAUSE )
+
+:: Return to starting directory
+POPD
+cd /d %HOG_PYTHONTOOLS_PATH%

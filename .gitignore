@@ -31,6 +31,9 @@ venv/
 ENV/
 .virtualenv/
 
+# Allow specific env directory in our project structure
+!Build/ArtTools/hog_python/env/
+
 # Windows
 Thumbs.db
 ehthumbs.db

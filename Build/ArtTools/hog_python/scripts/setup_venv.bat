@@ -14,7 +14,13 @@ ECHO Starting: %~dp0setup_venv.bat
 SET "HOG_ENVIRONMENT_ONLY=1"
 SET "USE_LOCAL_DEV_ENV_ONLY=1"
 
+:: Set and force Python version
+ECHO Setting up virtual environment for Python
 CALL %~dp0../env/set_version.cmd
+ECHO Using Python version: %HOG_PYTHON_VERSION%
+
+:: Force using this version
+SET "FORCED_PYTHON_VERSION=%HOG_PYTHON_VERSION%"
 
 CALL %~dp0../hog_python_env.cmd
 
@@ -31,6 +37,10 @@ PAUSE
 cd /D %HOG_BLENDER_DEVPY_PATH%
 
 CALL %HOG_BLENDER_DEVPY_PATH%\scripts\upgrade_pip.cmd
+
+:: Force the correct venv path based on HOG_PYTHON_VERSION
+SET "HOG_PY_BASE_VENV=%HOG_PYTHONTOOLS_PATH%\.venv\Python-%HOG_PYTHON_VERSION%"
+ECHO Using venv path: %HOG_PY_BASE_VENV%
 
 ECHO    setup_venv.bat::  Installing: "%HOG_PY_BASE_VENV%" ...
 CALL "%HOG_PY_BASE_PYTHON_EXE%" -m venv --copies "%HOG_PY_BASE_VENV%"
