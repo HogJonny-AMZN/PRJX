@@ -4,7 +4,10 @@ __pycache__/
 *$py.class
 *.so
 .Python
+# Excluding 'Build/' directory but still ignoring 'build/'
 build/
+# Our project-specific directories (do not ignore)
+!Build/
 develop-eggs/
 dist/
 downloads/
@@ -27,13 +30,6 @@ env/
 venv/
 ENV/
 .virtualenv/
-
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 # Windows
 Thumbs.db
